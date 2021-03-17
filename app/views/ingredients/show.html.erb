@@ -1,0 +1,10 @@
+<h1><%= @ingredient.ingredient_name %></h1>
+
+<p><%= link_to "Edit", edit_ingredient_path(@ingredient) %></p>
+<p><%= link_to "Delete", ingredient_path(@ingredient), :data =>
+  {
+    :confirm => "You sure?",
+    :method => "delete"
+  } %></p>
+
+<p><%= link_to "Return to ingredients", ingredients_path %></p>
