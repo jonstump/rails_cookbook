@@ -1,0 +1,15 @@
+<h1>Categories</h1>
+
+<% if @categories.any? %>
+  <ul>
+    <% @categories.each do |category| %>
+      <li><%= link_to category.category_name, category_path(category) %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are no categories yet.</p>
+<% end %>
+
+
+<p><%= link_to "Create new category", new_category_path %></p>
+<p><%= link_to "Recipes", recipes_path %></p>

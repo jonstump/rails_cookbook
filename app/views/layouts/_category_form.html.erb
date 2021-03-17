@@ -1,0 +1,10 @@
+<%= render "layouts/errors", :object => @category %>
+
+<%= form_for @category do |f| %>
+  <%= f.label :category_name %>
+  <%= f.text_field :category_name %>
+  <%= f.submit %>
+<% end %>
+
+<p><%= link_to "Recipes", recipes_path %></p>
+<p><%= link_to "Return to categories", categories_path %></p>

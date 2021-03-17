@@ -1,0 +1,11 @@
+<h1><%= @category.category_name %></h1>
+
+<p><%= link_to "Edit", edit_category_path(@category) %></p>
+<p><%= link_to "Delete", category_path(@category), :data =>
+  {
+    :confirm => "You sure?",
+    :method => "delete"
+  } %></p>
+
+<p><%= link_to "Return to ingredients", ingredients_path %></p>
+<p><%= link_to "Recipes", recipes_path %></p>
