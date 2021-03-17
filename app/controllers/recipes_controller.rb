@@ -1,4 +1,4 @@
-class RecipeController < ApplicationController
+class RecipesController < ApplicationController
   def index
     @recipes = Recipe.all
     render :index
@@ -44,7 +44,7 @@ class RecipeController < ApplicationController
 
   private
     def recipe_params
-      params.require(:recipe).permit(:name, :id)
+      params.require(:recipe).permit(:name, :instructions)
     end
 
 end
