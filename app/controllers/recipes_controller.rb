@@ -1,4 +1,5 @@
 class RecipesController < ApplicationController
+  
   def index
     @recipes = Recipe.all
     @categories = Category.all
@@ -15,6 +16,8 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.new(recipe_params)
+    @categories = Category.all
+    @ingredients = Ingredient.all
     if @recipe.save
       if params[:category_selection].to_i != 0
         category = Category.find(params[:category_selection].to_i)
@@ -27,8 +30,7 @@ class RecipesController < ApplicationController
       flash[:notice] = "Recipe successfully added!"
       redirect_to recipes_path
     else
-      flash[:notice] = "Recipe was not entered or already exists"
-      redirect_to new_recipe_path
+      render :new
     end
   end
 
