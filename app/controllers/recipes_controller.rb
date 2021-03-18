@@ -18,16 +18,17 @@ class RecipesController < ApplicationController
     if @recipe.save
       if params[:category_selection].to_i != 0
         category = Category.find(params[:category_selection].to_i)
-        binding.pry
         category.recipes << @recipe
       end
       if params[:ingredient_selection].to_i != 0
         ingredient = Ingredient.find(params[:ingredient_selection].to_i)
         ingredient.recipes << @recipe
       end
+      flash[:notice] = "Recipe successfully added!"
       redirect_to recipes_path
     else
-      render :new
+      flash[:notice] = "Recipe was not entered or already exists"
+      redirect_to new_recipe_path
     end
   end
 
