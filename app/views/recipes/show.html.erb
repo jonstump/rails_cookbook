@@ -1,4 +1,29 @@
 <h1><%= @recipe.name %></h1>
+
+<h2>Categories</h2>
+<% if @recipe.categories.any? %>
+  <ul>
+    <% @recipe.categories.each do |category| %>
+      <li><%= link_to category.category_name, category_path(category) %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are no categories on this recipe yet.</p>
+<% end %>
+
+<h2>Ingredients</h2>
+<% if @recipe.ingredients.any? %>
+  <ul>
+    <% @recipe.ingredients.each do |ingredient| %>
+      <li><%= link_to ingredient.ingredient_name, ingredient_path(ingredient) %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>There are no ingredients on this recipe yet.</p>
+<% end %>
+
+<h2>Instructions</h2>
+
 <p><%= @recipe.instructions %></p>
 
 <p><%= link_to "Edit", edit_recipe_path(@recipe) %></p>

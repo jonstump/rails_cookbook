@@ -5,6 +5,29 @@
   <%= f.text_field :name %>
   <%= f.label :instructions %>
   <%= f.text_area :instructions %>
+
+  <% if @categories.any? %>
+    <select id="category" name="category_selection">
+      <option>Select Category</option>
+    <% @categories.each do |category| %>
+      <option value=<%= "#{category.id}" %>><%= category.category_name %></option>
+    <% end %>
+    </select>
+  <% else %>
+    <p>There are no Categories</p>
+  <% end %>
+
+  <% if @ingredients.any? %>
+    <select name="ingredient_selection">
+      <option>Select Ingredient</option>
+    <% @ingredients.each do |ingredient| %>
+      <option value=<%= "#{ingredient.id}" %>><%= ingredient.ingredient_name %></option>
+    <% end %>
+    </select>
+  <% else %>
+    <p>There are no Ingredients</p>
+  <% end %>
+
   <%= f.submit %>
 <% end %>
 
