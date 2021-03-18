@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-describe "the edit recipe process" do
-  it "edit a recipe" do
+describe "the delete recipe process" do
+  it "delete a recipe" do
     recipe = Recipe.new({:name => 'Spaghetti'})
     recipe.save
     category = Category.new({:category_name => 'bread'})
