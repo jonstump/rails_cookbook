@@ -49,7 +49,9 @@ class RecipesController < ApplicationController
   end
 
   def update
-    @recipe = Recipe.find(params[:id])
+    @recipe = Recipe.new(recipe_params)
+    @categories = Category.all
+    @ingredients = Ingredient.all
     if @recipe.update(recipe_params)
       if params[:category_selection].to_i != 0
         category = Category.find(params[:category_selection].to_i)
@@ -68,6 +70,7 @@ class RecipesController < ApplicationController
 
   def destroy
     @recipe = Recipe.find(params[:id]).destroy
+    flash[:notice] = "Recipe has been successfully deleted"
     redirect_to recipes_path
   end
 

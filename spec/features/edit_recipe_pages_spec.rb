@@ -20,9 +20,14 @@ describe "the edit recipe process" do
     expect(page).to have_content 'Lasagna'
   end
 
-  # it "gives an error when no name is entered" do
-  #   visit new_recipe_path
-  #   click_on 'Create Recipe'
-  #   expect(page).to have_content "Name can't be blank"
-  # end
+  it "gives an error when no name is entered" do
+    recipe = Recipe.new({:name => 'Spaghetti'})
+    recipe.save
+    visit recipes_path
+    click_link 'Spaghetti'
+    click_link 'Edit'
+    fill_in 'Name', :with => ' '
+    click_on 'Update Recipe'
+    expect(page).to have_content "Name can't be blank"
+  end
 end
