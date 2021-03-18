@@ -17,11 +17,11 @@ describe "the add recipe process" do
     expect(page).to have_content 'Spaghetti'
   end
 
-  # it "gives an error when no name is entered" do
-  #   visit new_album_path
-  #   click_on 'Create Album'
-  #   expect(page).to have_content "Name can't be blank"
-  # end
+  it "gives an error when no name is entered" do
+    visit new_recipe_path
+    click_on 'Create Recipe'
+    expect(page).to have_content "Name can't be blank"
+  end
 end
 
 
