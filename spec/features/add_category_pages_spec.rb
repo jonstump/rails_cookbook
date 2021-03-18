@@ -10,9 +10,9 @@ describe "the add category process" do
     expect(page).to have_content 'Spaghetti'
   end
 
-  # it "gives an error when no name is entered" do
-  #   visit new_recipe_path
-  #   click_on 'Create Recipe'
-  #   expect(page).to have_content "Name can't be blank"
-  # end
+  it "gives an error when no category name is entered" do
+    visit new_category_path
+    click_on 'Create Category'
+    expect(page).to have_content "Category name can't be blank"
+  end
 end
